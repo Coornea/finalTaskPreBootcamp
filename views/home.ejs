@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home | Quick Post Indonesia</title>
+		<!-- CSS only -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="stylesheets/style.css" />
+	</head>
+	<style>
+		.container {
+			background: #a0a2a7e1;
+			height: 80vh;
+			width: 100%;
+			object-fit: cover;
+		}
+	</style>
+	<% include components/navbar.ejs %>
+	<body style="background: rgba(228, 55, 2, 0.938)">
+		<div class="body">
+			<div class="container">
+				<div class="jumbotron" style="text-align: center">
+					<div>
+						<h1 style="line-height: 50vh">Wellcome to Our Website</h1>
+						<p>Please login, or register to create new account.</p>
+						<p>
+							<button class="btn btn-lg btn-danger">
+								<a href="/login" style="text-decoration: none">Login</a>
+							</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% include components/footer.ejs %>
+	</body>
+</html>

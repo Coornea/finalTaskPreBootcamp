@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+		<!-- CSS only -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+	</head>
+	<body>
+		<% include ../components/navbar.ejs %>
+		<li class="nav-item">
+			<a class="button" href="/logout">Logout</a>
+		</li>
+
+		<h1 style="text-align: center">Manage Customer</h1>
+		<div style="margin: 30px">
+			<a href="/customer/add" class="btn-primary">Add Customer</a>
+			<% if (messages.success){ %>
+			<strong style="color: rgb(30, 151, 19)"><%= messages.success %></strong>
+			<% } %>
+		</div>
+
+		<div class="card-container">
+			<% data.map((item) => { %>
+
+			<div class="card">
+				<form action="" class="card-form">
+					<div>
+						<img src="<%= item.profile %>" alt="profile" />
+					</div>
+					<div class="card-content">
+						<p>Nama: <%= item.name %></p>
+						<p>WA: +62<%= item.phone %></p>
+						<p>Alamat: <%= item.address %></p>
+					</div>
+				</form>
+				<div>
+					<a
+						href="/customer/delete/<%= item.id %>"
+						onclick="return confirm('Are you sure, want to delete!')"
+						class="btn-type1"
+					>
+						Delete
+					</a>
+					<a
+						href="/customer/edit/<%= item.id %>"
+						class="btn-type1"
+						style="margin-left: 40px"
+					>
+						Edit
+					</a>
+				</div>
+			</div>
+			<% }) %>
+		</div>
+		<% include ../components/footer.ejs %>
+	</body>
+</html>

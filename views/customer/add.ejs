@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Add</title>
+		<!-- CSS only -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+	</head>
+	<body>
+		<% include ../components/navbar.ejs %>
+		<h1 style="text-align: center">Add User</h1>
+
+		<div style="margin: 30px">
+			<a href="/" class="btn-primary">Back</a>
+		</div>
+
+		<div class="form-container">
+			<form action="/customer/store" method="POST">
+				<% if (messages.error){ %>
+				<strong style="color: orangered"><%= messages.error %></strong>
+				<% } %>
+				<div>
+					<label for="">Nama :</label>
+					<input type="text" value="<%= name %>" name="name" id="name" />
+				</div>
+				<div>
+					<label for="">WA :</label>
+					<input type="number" value="<%= phone %>" name="phone" id="phone" />
+				</div>
+				<div>
+					<label for="">Address :</label>
+					<textarea name="address" id="address" cols="20" rows="4">
+            <%= address %>
+          </textarea>
+				</div>
+				<div>
+					<label for="">Profile :</label>
+					<input
+						type="text"
+						value="<%= profile %>"
+						name="profile"
+						id="profile"
+					/>
+				</div>
+				<div>
+					<button class="btn-custom">Upload</button>
+				</div>
+			</form>
+		</div>
+		<% include ../components/footer.ejs %>
+	</body>
+</html>
