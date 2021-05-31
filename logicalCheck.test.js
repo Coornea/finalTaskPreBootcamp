@@ -1,27 +1,49 @@
 // Prime Number Checking
 
-const number = [];
+let number;
 const primeCheck = (number) => {
-	let pembagi = 0;
-	for (let i = 1; i <= number; i++) {
+	if(number < 2) return false;
+
+	for (let i = 2; i < number; i++) {
 		if (number % i === 0) {
-			pembagi++;
+			return false;
 		}
 	}
-	if (pembagi === 2) {
-		return 1;
-	} else {
-		return 0;
-	}
-};
-test("check number ", () => {
-	expect(primeCheck(2)).toBe(number === 1);
+		return true;
+}
+
+test("check number", () => {
+	expect(primeCheck(3)).toEqual(true);
 });
 
-// Kind of Age
+// Vowels Check
 
-const umur = [67, 23, 12, 3, 89, 54];
+let alphabet = '';
+function vowelsCheck(alphabet) {
+	let alphabetUppercase = alphabet.toUpperCase();
+	let isVocal = alphabetUppercase  == "A"
+					|| alphabetUppercase == "E"
+					|| alphabetUppercase == "I"
+					|| alphabetUppercase == "O"
+					|| alphabetUppercase == "U" ? true : false;
+	return isVocal;
+}
 
-const golongan = umur.map((check) => {
-   return 
-})
+test("check vowels ", () => {
+	expect(vowelsCheck('I')).toEqual(true);
+});
+
+// Ganjil Genap
+
+let num;
+const numberCheck = (num) => {
+	if(num % 2 === 0){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+test("check number", () => {
+	expect(numberCheck(2)).toEqual(true);
+});
